@@ -1,3 +1,17 @@
+$("#trash").droppable({
+  accept:".card .list-group-item",
+  tolerance: "touch",
+  drop: function(event, ui) {
+    console.log("drop");
+    ui.draggable.remove();
+  },
+  over: function(event, ui) {
+    console.log("over");
+  },
+  out: function(event, ui) {
+    console.log("out");
+  }
+})
 $(".card .list-group").sortable({
   connectWith: $(".card .list-group"),
   scroll: false,
@@ -33,6 +47,14 @@ $(".card .list-group").sortable({
       });
       console.log(text, date);
     })
+    //trim down list's ID to match object property
+    var arrName = $(this)
+    .attr("id")
+    .replace("list-", "");
+
+    //update array on task object and save 
+    tasks[arrName] = tempArr;
+    saveTasks();
   }
 });
 var tasks = {};

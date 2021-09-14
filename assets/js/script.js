@@ -13,7 +13,10 @@ $(".card .list-group").sortable({
     console.log("over", event.target);
   },
   update: function(event) {
-    console.log("update", this);
+    //loop over current set of children in sortable list
+    $(this).children().each(function() {
+      console.log($(this));
+    })
   }
 });
 var tasks = {};

@@ -13,9 +13,25 @@ $(".card .list-group").sortable({
     console.log("over", event.target);
   },
   update: function(event) {
+    var tempArr = [];
     //loop over current set of children in sortable list
     $(this).children().each(function() {
-      console.log($(this));
+      var text = $(this)
+      .find("p")
+      .text()
+      .trim();
+
+      var date = $(this)
+      .find("span")
+      .text()
+      .trim();
+
+      //add task data to the temp array as an object
+      tempArr.push({
+        text: text,
+        date: date
+      });
+      console.log(text, date);
     })
   }
 });

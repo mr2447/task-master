@@ -6,15 +6,18 @@ var auditTask = function(taskEl) {
   //convert to moment object at 5:00pm
   var time = moment(date, "L").set ("hour", 17);
   //remove any old classes from element 
-  $(taskEl).removeClass("list-group-item-warning list-group-item-daner");
+  $(taskEl).removeClass("list-group-item-warning list-group-item-danger");
 
   //apply new class if task i near/over due date
   if(moment().isAfter(time)) {
     $(taskEl).addClass("list-group-item-danger");
   }
+  else if (Math.abs(moment().diff(time,"days")) <= 2) {
+    $(taskEl).addClass("list-group-item-warning");
+  }
+  };
   //this should print out an object for the value of the date variable, but at 5:00pm of that date
-  console.log(time)
-}
+
 $("#modalDueDate").datepicker({
   minDate: 1,
   onClose: function() {

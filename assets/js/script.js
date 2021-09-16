@@ -1,6 +1,6 @@
 var auditTask = function(taskEl) {
   //get date from task element
-  var date = $(taskEl).find("span").text().trim;
+  var date = $(taskEl).find("span").text().trim();
   //ensure it worked
   console.log(date);
   //convert to moment object at 5:00pm
@@ -233,6 +233,9 @@ var taskSpan = $("<span>")
 
 //replace input with span element 
 $(this).replaceWith(taskSpan);
+
+//Pass task's <li> element into auditTask() to check new due date
+auditTask($(taskSpan).closest(".list-group-item"));
 });
 
 

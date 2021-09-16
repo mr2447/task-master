@@ -54,18 +54,22 @@ $(".card .list-group").sortable({
   helper: "clone",
   activate: function(event) {
     console.log("activate", this);
-    $(this).addClass(".dropover");
+    $(this).addClass("dropover");
+    $("bottom-trash").addClass("bottom-trash-drag");
   },
   deactivate: function(event) {
     console.log("deactivate", this);
-    $(this).removeClass(".droppover");
+    $(this).removeClass("dropover");
+    $("bottom-trash").removeClass("bottom-trash-drag");
   },
   over: function(event) {
     console.log("over", event.target);
-    $(event.target).addClass(".dropover-active");
+    $(event.target).addClass("dropover-active");
+    $("bottom-trash").addClass("bottom-trash-active")
   },
   out: function(event) {
-    $(event.target).removeClass(".dropover-active");
+    $(event.target).removeClass("dropover-active");
+    $("bottom-trash").removeClass("bottom-trash-active")
   },
   update: function(event) {
     var tempArr = [];

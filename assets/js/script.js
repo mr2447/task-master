@@ -54,12 +54,18 @@ $(".card .list-group").sortable({
   helper: "clone",
   activate: function(event) {
     console.log("activate", this);
+    $(this).addClass(".dropover");
   },
   deactivate: function(event) {
     console.log("deactivate", this);
+    $(this).removeClass(".droppover");
   },
   over: function(event) {
     console.log("over", event.target);
+    $(event.target).addClass(".dropover-active");
+  },
+  out: function(event) {
+    $(event.target).removeClass(".dropover-active");
   },
   update: function(event) {
     var tempArr = [];

@@ -58,10 +58,10 @@ background-color: rgba(0,0,0,0.3);
   background-position: 0 -10px;
 }
 
-.btn-close,
-.btn-delete, 
-.btn-add,
-.btn-save,
+.btn-close:hover,
+.btn-delete:hover, 
+.btn-add:hover,
+.btn-save:hover,
 .bottom-trash-active:hover {
 background-position: 1px -50px;
 }

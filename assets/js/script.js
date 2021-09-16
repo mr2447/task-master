@@ -1,3 +1,8 @@
+setInterval(function() {
+  $(".card .list-group-item").each(function(index, el) {
+    auditTask(el);
+  });
+}, 5000);
 var auditTask = function(taskEl) {
   //get date from task element
   var date = $(taskEl).find("span").text().trim();
